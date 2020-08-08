@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.codelab.mlkit;
+package com.google.vanh.mlkit;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -111,7 +111,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
         Spinner dropdown = findViewById(R.id.spinner);
-        String[] items = new String[]{"Test Image 1 (Text)", "Test Image 2 (Face)"};
+        String[] items = new String[]{"Test Image 1 (Text)", "Test Image 2 (Face)",
+                "cartoon.jpeg",
+              "gal_2face.jpeg",
+              "text_image1.png",
+              "text_image2.png",
+              "text_image3.png",
+              "text_image4.png",
+              "text_image5.png",
+              "gal_3face.jpeg",
+              "gal_as3.jpeg",
+              "gal_bk3.jpeg",
+              "gal_mask.jpeg",
+              "guy_as1.jpeg",
+              "guy_weird.jpeg",
+              "woman_horse.png"
+
+        };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout
                 .simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
@@ -260,6 +276,64 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 1:
                 // Whatever you want to happen when the thrid item gets selected
                 mSelectedImage = getBitmapFromAsset(this, "grace_hopper.jpg");
+                break;
+            case 2:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "cartoon.jpeg");
+                break;
+            case 3:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "gal_2face.jpeg");
+                break;
+
+            case 4:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "text_image1.png");
+                break;
+
+            case 5:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "text_image2.jpeg");
+                break;
+            case 6:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "text_image3.png");
+                break;
+            case 7:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "text_image4.jpeg");
+                break;
+            case 8:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "text_image5.png");
+                break;
+            case 9:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "gal_3face.jpeg");
+                break;
+            case 10:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "gal_as3.jpeg");
+                break;
+            case 11:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "gal_bk3.jpeg");
+                break;
+            case 12:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "gal_mask.jpeg");
+                break;
+            case 13:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "guy_as1.jpeg");
+                break;
+            case 14:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "guy_weird.jpeg");
+                break;
+            case 15:
+                // Whatever you want to happen when the thrid item gets selected
+                mSelectedImage = getBitmapFromAsset(this, "woman_horse.jpg");
                 break;
         }
         if (mSelectedImage != null) {

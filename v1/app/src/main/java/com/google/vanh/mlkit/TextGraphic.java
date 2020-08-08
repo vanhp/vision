@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.codelab.mlkit;
+package com.google.vanh.mlkit;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -20,7 +20,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 
-import com.google.codelab.mlkit.GraphicOverlay.Graphic;
+import com.google.vanh.mlkit.GraphicOverlay.Graphic;
 import com.google.mlkit.vision.text.Text;
 
 /**
