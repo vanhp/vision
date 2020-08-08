@@ -117,10 +117,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     private void runTextRecognition() {
+
+        // run on the user device
        InputImage image = InputImage.fromBitmap(mSelectedImage, 0);
        TextRecognizer recognizer = TextRecognition.getClient();
        mTextButton.setEnabled(false);
-       recognizer.process(image)
+       recognizer.process(image)   // ML guess correct image
                .addOnSuccessListener(
                        new OnSuccessListener<Text>() {
                            @Override
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                processTextRecognitionResult(texts);
                            }
                        })
-               .addOnFailureListener(
+               .addOnFailureListener(  // ML guess wrong
                        new OnFailureListener() {
                            @Override
                            public void onFailure(@NonNull Exception e) {
@@ -140,7 +142,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                        });
     }
     private void processTextRecognitionResult(Text texts) {
-        // Replace with code from the codelab to process the text recognition result.
+        // get list of all bounding box of texts in the image
+        // each word is assigned a box
+        List<Text.TextBlock> blocks = texts.getTextBlocks();
+        if(blocks.size() == 0){
+            showToast("no Text found");
+            return;
+        }
+        mGraphicOverlay.clear();
+        // drill down inside each box and line to get each character
+        for(int i = 0;i<blocks.size();i++){
+            List<Text.Line> lines = blocks.get(i).getLines();
+            for(int j = 0;j <lines.size();j++){
+                List<Text.Element> elements = lines.get(j).getElements();
+                for(int k = 0;k <elements.size();k++){
+                    GraphicOverlay.Graphic textGraphic = new TextGraphic(mGraphicOverlay,elements.get(k));
+                    mGraphicOverlay.add(textGraphic);
+                }
+            }
+        }
     }
 
     private void runFaceContourDetection() {
